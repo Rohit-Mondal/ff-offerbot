@@ -33,7 +33,7 @@ const search = async (dept, arrv, date, ctx) => {
                 date = res.data.data[0].route.departureDate,
                 price = res.data.data[0].fare.adult + 100
             ctx.reply(
-                `${depurture} - ${arrival}\n✈ Offer AirFares ✈\n\nDate : ${date} (Tomorrow)\nAirline : ${airlineName}\nPrice : Rs ${price}`
+                `${depurture} - ${arrival}\n✈ Offer AirFares ✈\n\nDate : ${date}\nAirline : ${airlineName}\nPrice : Rs ${price}`
             )
         }
         await timer(2000);
@@ -49,7 +49,8 @@ const getNextDate = () => {
     let date = ("0" + nextDay.getDate()).slice(-2);
     let month = ("0" + (nextDay.getMonth() + 1)).slice(-2);
     let year = nextDay.getFullYear();
-    return (year + "-" + month + "-" + date);
+    // return (year + "-" + month + "-" + date);
+    return ("2022-12-23")
 }
 
 const timer = ms => new Promise(res => setTimeout(res, ms))
